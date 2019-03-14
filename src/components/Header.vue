@@ -1,6 +1,7 @@
 <template>
-  <div>
-  </div>
+  <header class="header">
+    123456
+  </header>
 </template>
 
 <script>
@@ -9,6 +10,9 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
-
+<style lang="scss">
+  .header{
+    grid-area: header;
+    background: red;
+  }
 </style>
