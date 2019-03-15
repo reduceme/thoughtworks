@@ -30,7 +30,7 @@ export default {
 
   .picture{
     grid-area: picture;
-    background: url("../static/ASSETS/logo/logo.svg") no-repeat 50%;
+    background: url("../../static/ASSETS/logo/logo.svg") no-repeat 50%;
     background-size: 10%;
   }
 
