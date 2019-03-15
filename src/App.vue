@@ -17,8 +17,9 @@ export default {
 <style>
 #app {
   display: grid;
+  background: #f3f3f3;
   grid-template-columns: auto 1200px auto;
-  grid-template-rows: 80px 1000px 40px;
+  grid-template-rows: 80px 1200px 40px;
   grid-template-areas: "header header header"
   ".      hero   ."
   "footer footer footer";
