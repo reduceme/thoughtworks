@@ -2,10 +2,12 @@ import axios from 'axios'
 
 const state = {
   osList: [],
-  building: 0,
-  idle: 0,
+  status: {
+    building: 0,
+    idle: 0
+  },
   osType: {
-    all: 0,
+    allCount: 0,
     physical: 0,
     virtual: 0
   },
@@ -44,13 +46,14 @@ const actions = {
     for (let i in state.osType) {
       state.osType[i] = 0
     }
-    state.building = 0
-    state.idle = 0
+    for (let i in state.status) {
+      state.status[i] = 0
+    }
     axios.get('http://localhost:3001/agents')
       .then(function (res) {
         if (res.status === 200) {
           state.osList = res.data
-          state.osList.all = state.osList.length
+          state.osType.allCount = state.osList.length
           for (let i = 0; i < state.osList.length; i++) {
             let item = state.osList[i]
             if (item.type === 'physical') {
@@ -59,9 +62,9 @@ const actions = {
               state.osType.virtual++
             }
             if (item.status === 'building') {
-              state.building++
+              state.status.building++
             } else {
-              state.idle++
+              state.status.idle++
             }
           }
         } else {

@@ -5,7 +5,7 @@
       <div class="left-bar-icon cog">
         <span class="icon-cog icon-span"></span>
       </div>
-      <div class="left-bar-num">{{building}}</div>
+      <div class="left-bar-num">{{status.building}}</div>
     </div>
 
     <div class="center-bar">
@@ -13,14 +13,14 @@
       <div class="left-bar-icon">
         <span class="icon-coffee icon-span"></span>
       </div>
-      <div class="left-bar-num">{{idle}}</div>
+      <div class="left-bar-num">{{status.idle}}</div>
     </div>
 
     <div class="right-bar">
       <div class="right-title right-bar-left-title">ALL</div>
       <div class="right-title right-bar-center-title">PHYSICAL</div>
       <div class="right-title right-bar-right-title">VIRTUAL</div>
-      <div class="right-num right-bar-left-num">{{osType.all}}</div>
+      <div class="right-num right-bar-left-num">{{osType.allCount}}</div>
       <div class="right-num right-bar-center-num">{{osType.physical}}</div>
       <div class="right-num right-bar-right-num">{{osType.virtual}}</div>
     </div>
@@ -37,8 +37,7 @@ export default {
   },
   computed: {
     ...mapState({
-      building: state => state.agents.building,
-      idle: state => state.agents.idle,
+      status: state => state.agents.status,
       osType: state => state.agents.osType
     })
   }

@@ -23,10 +23,14 @@ export default {
 <style>
   #app {
     display: grid;
+    display: -ms-grid;
     background: #f3f3f3;
     grid-template-columns: auto 1200px auto;
     grid-template-rows: 80px auto 40px;
     grid-template-areas: "header header header" ".      hero   ." "footer footer footer";
+
+    -ms-grid-columns: auto 1200px auto;
+    -ms-grid-rows: 80px auto 40px;
 
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;

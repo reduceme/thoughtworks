@@ -4,14 +4,15 @@
     </div>
     <div class="nav-bar">
       <img class="nav-img" src="../../static/ASSETS/img/timg.jpg" alt="">
-      <i class="nav-down icon" :class="isDropDown === true ? 'icon-angle-up' : 'icon-angle-down'" @click="isDropDownShow()"></i>
+      <i class="nav-down icon" :class="isDropDown === true ? 'icon-angle-up' : 'icon-angle-down'"
+         @click="isDropDownShow()"></i>
     </div>
     <DropDown></DropDown>
   </header>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import {mapState} from 'vuex'
 import DropDown from './DropDown'
 
 export default {
@@ -33,13 +34,20 @@ export default {
 <style scoped lang="scss">
   .header {
     grid-area: header;
+    -ms-grid-column: 1; /*确定该元素所在列*/
+    -ms-grid-row: 1;    /*确定该元素所在行*/
     background: #ffffff;
     display: grid;
+    display: -ms-grid;
     grid-template-columns: 20% 60% 20%;
     grid-template-rows: 1fr;
     grid-template-areas: ".  picture  nav-bar";
+
+    -ms-grid-columns: 20% 60% 20%;
+    -ms-grid-rows: 1fr;
+
     border-bottom: solid 1px #c1c4c6;
-    box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     width: 100%;
@@ -60,6 +68,10 @@ export default {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       grid-template-areas: "nav-img nav-down";
+
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr;
 
       .nav-img {
         border-radius: 50%;
