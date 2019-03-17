@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-// const imgUrl = '../../static/ASSETS/osIcons/'
-
 const state = {
   osList: [],
   building: 0,
@@ -19,7 +17,8 @@ const state = {
   },
   osId: undefined,
   osInfo: {},
-  addOSInfo: ''
+  addOSInfo: '',
+  isDropDownShow: false
 }
 
 const mutations = {
@@ -38,11 +37,19 @@ const mutations = {
   },
   updateAddOSInfo (state, commit) {
     state.addOSInfo = commit
+  },
+  isDropDownShow (state, commit) {
+    state.isDropDownShow = !state.isDropDownShow
   }
 }
 
 const actions = {
-  getOSList ({commit, state}) {
+  getOSList () {
+    for (let i in state.osType) {
+      state.osType[i] = 0
+    }
+    state.building = 0
+    state.idle = 0
     axios.get('http://localhost:3001/agents')
       .then(function (res) {
         if (res.status === 200) {
@@ -69,13 +76,12 @@ const actions = {
         console.log(err)
       })
   },
-  deleteOS ({commit, state}) {
+  deleteOS () {
     state.osInfo.resources.splice(state.osInfo.resources.findIndex(item => item === state.addOSInfo), 1)
-    // state.osInfo.resources.splice(state.osInfo.resources.findIndex(item => item.id === 8), 1)
     axios.put('http://localhost:3001/agents/' + state.osId, state.osInfo)
       .then(function (res) {
         if (res.status === 200) {
-          actions.getOSList()
+          actions.getOSList({})
           state.addOSInfo = ''
         } else {
           console.log('操作失败')
@@ -85,11 +91,10 @@ const actions = {
         console.log(err)
       })
   },
-  addOS ({commit, state}) {
+  addOS () {
     state.osInfo.resources = Array.from(new Set(state.osInfo.resources.concat(state.addOSInfo.split(','))))
     axios.put('http://localhost:3001/agents/' + state.osId, state.osInfo)
       .then(function (res) {
-        console.log(res)
         if (res.status === 200) {
           actions.getOSList()
           state.modalInfo.modalShow = false

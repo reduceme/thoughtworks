@@ -24,6 +24,7 @@ export default {
 
     li {
       position: relative;
+      cursor: pointer;
     }
 
     list-style: none;
@@ -57,7 +58,6 @@ export default {
       padding: 0 30px;
       .icon-search {
         position: absolute;
-        /*font-size: 20px;*/
         top: 15px;
         left: 35px;
         color: #2d405f;
@@ -92,7 +92,6 @@ export default {
 
     .active {
       color: #00b4cf;
-      /*border-bottom: solid 3px #00b4cf;*/
       &:after{
         display: block;
         content: '';

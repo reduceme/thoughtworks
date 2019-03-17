@@ -3,6 +3,7 @@
     <div class="os-list" v-for="item in osList" :key="item.id">
       <div class="os-icon">
         <img :src="getImg(item.os)"/>
+        <!--<img src="../../static/ASSETS/osIcons/windows.png">-->
       </div>
       <div class="os-info">
         <div class="os-detail">
@@ -44,7 +45,8 @@ export default {
   components: {AddOSModal},
   methods: {
     getImg (os) {
-      const imgUrl = '../../static/ASSETS/osIcons/'
+      const imgUrl = '/static/ASSETS/osIcons/'
+      console.log(imgUrl + os + '.png')
       return imgUrl + os + '.png'
     },
     getCoordinate (_this, e) {
@@ -94,8 +96,8 @@ export default {
 
   .content-list {
     grid-area: content-list;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    /*overflow-y: scroll;*/
+    /*overflow-x: hidden;*/
 
     .os-list {
       height: auto;
@@ -171,6 +173,7 @@ export default {
               width: 25px;
               color: #fff;
               padding: 6px;
+              margin-bottom: 10px;
             }
 
             .delete-os{
