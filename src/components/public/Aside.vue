@@ -114,16 +114,14 @@ export default {
       }
     }
 
-    li:hover {
-      background: #435466;
-      color: #00B4CF;
-    }
-
-    li:hover a {
-      color: #00B4CF;
-    }
-
     li {
+      &:hover{
+        background: #435466;
+        color: #00B4CF;
+      }
+      &:hover a{
+        color: #00B4CF;
+      }
       cursor: pointer;
       display: grid;
       grid-template-columns: 33% 67%;

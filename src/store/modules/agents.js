@@ -17,8 +17,7 @@ const state = {
   },
   osId: undefined,
   osInfo: {},
-  addOSInfo: '',
-  isDropDownShow: false
+  addOSInfo: ''
 }
 
 const mutations = {
@@ -37,9 +36,6 @@ const mutations = {
   },
   updateAddOSInfo (state, commit) {
     state.addOSInfo = commit
-  },
-  isDropDownShow (state, commit) {
-    state.isDropDownShow = !state.isDropDownShow
   }
 }
 

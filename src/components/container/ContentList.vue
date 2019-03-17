@@ -46,7 +46,6 @@ export default {
   methods: {
     getImg (os) {
       const imgUrl = '/static/ASSETS/osIcons/'
-      console.log(imgUrl + os + '.png')
       return imgUrl + os + '.png'
     },
     getCoordinate (_this, e) {

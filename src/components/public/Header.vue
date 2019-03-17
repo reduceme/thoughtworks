@@ -12,7 +12,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import DropDown from '../container/DropDown'
+import DropDown from './DropDown'
 
 export default {
   name: 'Header',
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     ...mapState({
-      isDropDown: state => state.agents.isDropDownShow
+      isDropDown: state => state.header.isDropDownShow
     })
   }
 }
@@ -55,8 +55,6 @@ export default {
     .nav-bar {
       grid-area: nav-bar;
       align-self: center;
-      /*position: absolute;*/
-      /*width: 100%;*/
 
       display: grid;
       grid-template-columns: 1fr 1fr;

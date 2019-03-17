@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <router-view/>
+    <div class="center">
+      <Aside></Aside>
+      <router-view/>
+    </div>
     <Footer></Footer>
   </div>
 </template>
@@ -9,10 +12,11 @@
 <script>
 import Header from './components/public/Header'
 import Footer from './components/public/Footer'
+import Aside from './components/public/Aside'
 
 export default {
   name: 'App',
-  components: {Footer, Header}
+  components: {Aside, Footer, Header}
 }
 </script>
 
@@ -21,7 +25,7 @@ export default {
     display: grid;
     background: #f3f3f3;
     grid-template-columns: auto 1200px auto;
-    grid-template-rows: 80px 1200px 40px;
+    grid-template-rows: 80px auto 40px;
     grid-template-areas: "header header header" ".      hero   ." "footer footer footer";
 
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -30,6 +34,14 @@ export default {
     text-align: center;
     color: #2d4054;
     font-size: 14px;
+  }
+
+  .center{
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: auto;
+    grid-template-areas: "aside content"
   }
 
   ::-webkit-scrollbar {

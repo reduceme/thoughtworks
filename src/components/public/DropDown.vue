@@ -17,7 +17,7 @@ export default {
   name: 'DropDown',
   computed: {
     ...mapState({
-      isDropDown: state => state.agents.isDropDownShow
+      isDropDown: state => state.header.isDropDownShow
     })
   }
 }
