@@ -3,9 +3,12 @@
     <li class="all active">All</li>
     <li class="physical">Physical</li>
     <li class="virtual">Virtual</li>
-    <li class="search">search</li>
-    <li class="icon-th-card"></li>
-    <li class="icon-th-list"></li>
+    <li class="search">
+      <i class="icon icon-search"></i>
+      <input type="text"/>
+    </li>
+    <li class="icon icon-th-card"></li>
+    <li class="icon icon-th-list"></li>
   </ul>
 </template>
 
@@ -43,8 +46,29 @@ export default {
       grid-area: virtual;
     }
 
+    .icon {
+      font-size: 20px;
+    }
+
     .search {
       grid-area: search;
+
+      position: relative;
+      padding: 0 30px;
+      .icon-search {
+        position: absolute;
+        /*font-size: 20px;*/
+        top: 15px;
+        left: 35px;
+        color: #2d405f;
+      }
+      input {
+        background: #efefef;
+        height: 30px;
+        width: 170px;
+        border: solid 1px #e1e4e6;
+        text-indent:30px;
+      }
     }
 
     .icon-th-card {
@@ -53,6 +77,7 @@ export default {
 
     .icon-th-list {
       grid-area: icon-th-list;
+      color: #00b4cf;
     }
 
     .icon-th-list, .icon-th-card, .search {

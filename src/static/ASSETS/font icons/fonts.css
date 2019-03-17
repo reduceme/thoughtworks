@@ -31,6 +31,7 @@
 }
 .icon-deny:before {
   content: "\e611";
+  padding-right: 5px;
 }
 .icon-folder:before {
   content: "\e2c8";
@@ -58,6 +59,12 @@
 }
 .icon-trash:before {
   content: "\f014";
+}
+
+.icon-trash-after:after {
+  content: "\f014";
+  padding-left: 10px;
+  font-size: 16px;
 }
 .icon-sign-in:before {
   content: "\f090";

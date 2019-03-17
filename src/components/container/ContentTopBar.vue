@@ -5,7 +5,7 @@
       <div class="left-bar-icon cog">
         <span class="icon-cog icon-span"></span>
       </div>
-      <div class="left-bar-num">{{buildingNum}}</div>
+      <div class="left-bar-num">{{building}}</div>
     </div>
 
     <div class="center-bar">
@@ -13,31 +13,34 @@
       <div class="left-bar-icon">
         <span class="icon-coffee icon-span"></span>
       </div>
-      <div class="left-bar-num">{{IdleNum}}</div>
+      <div class="left-bar-num">{{idle}}</div>
     </div>
 
     <div class="right-bar">
       <div class="right-title right-bar-left-title">ALL</div>
       <div class="right-title right-bar-center-title">PHYSICAL</div>
       <div class="right-title right-bar-right-title">VIRTUAL</div>
-      <div class="right-num right-bar-left-num">{{all}}</div>
-      <div class="right-num right-bar-center-num">{{physical}}</div>
-      <div class="right-num right-bar-right-num">{{virtual}}</div>
+      <div class="right-num right-bar-left-num">{{osType.all}}</div>
+      <div class="right-num right-bar-center-num">{{osType.physical}}</div>
+      <div class="right-num right-bar-right-num">{{osType.virtual}}</div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'ContentTopBar',
   data () {
-    return {
-      buildingNum: 3,
-      IdleNum: 5,
-      all: 8,
-      physical: 4,
-      virtual: 4
-    }
+    return {}
+  },
+  computed: {
+    ...mapState({
+      building: state => state.agents.building,
+      idle: state => state.agents.idle,
+      osType: state => state.agents.osType
+    })
   }
 }
 </script>

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// import statistic from './modules/statisticStore'
+import agents from './modules/agents'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    // statistic
+    agents
   }
 })
