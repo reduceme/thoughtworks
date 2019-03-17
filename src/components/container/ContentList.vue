@@ -2,8 +2,8 @@
   <div class="content-list">
     <div class="os-list" v-for="item in osList" :key="item.id">
       <div class="os-icon">
-        <img :src="getImg(item.os)"/>
-        <!--<img src="../../static/ASSETS/osIcons/windows.png">-->
+        <!--<img :src="getImg(item.os)"/>-->
+        <img src="../../static/assets/osIcons/windows.png">
       </div>
       <div class="os-info">
         <div class="os-detail">
@@ -23,11 +23,11 @@
         </div>
         <div class="os-function">
           <div class="os-btn self">
-            <div class="float add-os icon-plus" @click="getCoordinate(this, $event), getItem(item)"></div>
+            <div class="float blue-btn add-os icon-plus" @click="getCoordinate(this, $event), getItem(item)"></div>
             <div :key="itemList" class="float delete-os icon-trash-after" v-for="itemList in item.resources" @click="deleteOSFn(item, itemList)">{{itemList}}</div>
           </div>
           <div class="os-deny self">
-            <div v-show="item.status === 'building'" class="deny icon icon-deny">deny</div>
+            <div v-show="item.status === 'building'" class="deny blue-btn icon icon-deny">deny</div>
           </div>
         </div>
       </div>
@@ -45,7 +45,8 @@ export default {
   components: {AddOSModal},
   methods: {
     getImg (os) {
-      const imgUrl = '/static/ASSETS/osIcons/'
+      // const imgUrl = '../../static/ASSETS/osIcon/'
+      const imgUrl = './static/osIcon/'
       return imgUrl + os + '.png'
     },
     getCoordinate (_this, e) {
@@ -95,8 +96,6 @@ export default {
 
   .content-list {
     grid-area: content-list;
-    /*overflow-y: scroll;*/
-    /*overflow-x: hidden;*/
 
     .os-list {
       height: auto;
@@ -168,9 +167,7 @@ export default {
             grid-area: os-btn;
             .add-os{
               font-size: 18px;
-              background: #00b4cf;
               width: 25px;
-              color: #fff;
               padding: 6px;
               margin-bottom: 10px;
             }
@@ -179,7 +176,7 @@ export default {
               background: #efefef;
               font-size: 14px;
               padding: 7px;
-              width: 80px;
+              min-width: 80px;
               display: block;
               margin-bottom: 10px;
             }
@@ -192,8 +189,7 @@ export default {
               width: 72px;
               padding: 8px;
               text-align: left;
-              background: #00b4cf;
-              color: #fff;
+              cursor: pointer;
             }
           }
         }

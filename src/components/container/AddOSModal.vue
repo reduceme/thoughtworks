@@ -13,7 +13,7 @@
         <input type="text" placeholder="e.g.Chrome,Firefox" :value="addOSInfo" @input="updateAddOSInfo">
       </div>
       <div class="modal-btn">
-        <div class="float modal-btn-one" @click="addOS()">Add Resources</div>
+        <div class="float blue-btn modal-btn-one" @click="addOS()">Add Resources</div>
         <div class="float modal-btn-two" @click="isModalShow()">Cancel</div>
       </div>
     </div>
@@ -91,10 +91,10 @@ export default {
       color: #00B4CF;
       cursor: pointer;
     }
-
+    box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
     position: fixed;
     padding: 0 15px;
-    width: 600px;
+    width: 570px;
     height: 170px;
     border: solid 1px #00b4cf;
     background: #fff;
@@ -106,7 +106,7 @@ export default {
     .modal-title {
       grid-area: modal-title;
       display: grid;
-      grid-template-columns: 500px 100px;
+      grid-template-columns: 470px 100px;
       grid-template-rows: 1fr;
       grid-template-areas: "modal-title-one modal-title-two";
 
@@ -147,13 +147,19 @@ export default {
       grid-area: modal-btn;
 
       .modal-btn-one {
-        background: #00b4cf;
+        /*background: #00b4cf;
         color: #fff;
+        &:hover{
+          background: #01869a;
+        }*/
       }
 
       .modal-btn-two {
         background: #2d4054;
         color: #fff;
+        &:hover{
+          background: #01869a;
+        }
       }
     }
   }

@@ -86,4 +86,13 @@ export default {
   .float:after {
     clear: both;
   }
+
+  .blue-btn {
+    background: #00b4cf;
+    color: #fff;
+  }
+
+  .blue-btn:hover{
+    background: #01869a;
+  }
 </style>

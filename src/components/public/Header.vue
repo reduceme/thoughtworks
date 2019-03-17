@@ -35,11 +35,11 @@ export default {
     grid-area: header;
     background: #ffffff;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 20% 60% 20%;
     grid-template-rows: 1fr;
     grid-template-areas: ".  picture  nav-bar";
     border-bottom: solid 1px #c1c4c6;
-    box-shadow: 0 1px 1px #c1c4c6;
+    box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 0;
     width: 100%;

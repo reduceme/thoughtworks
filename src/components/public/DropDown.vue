@@ -32,7 +32,7 @@ export default {
   border: solid 1px #c1c4c6;
   box-shadow: 0 1px 1px #c1c4c6;
   top: 90px;
-  left: 80%;
+  left: 85%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 40px 40px;
