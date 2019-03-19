@@ -25,11 +25,13 @@ export default {
     display: grid;
     display: -ms-grid;
     background: #f3f3f3;
-    grid-template-columns: auto 1200px auto;
+    grid-template-columns: 1fr 1200px 1fr;
     grid-template-rows: 80px auto 40px;
-    grid-template-areas: "header header header" ".      hero   ." "footer footer footer";
+    grid-template-areas: "header header header"
+    ".      hero   ."
+    "footer footer footer";
 
-    -ms-grid-columns: auto 1200px auto;
+    -ms-grid-columns: 1fr 1200px 1fr;
     -ms-grid-rows: 80px auto 40px;
 
     font-family: 'Avenir', Helvetica, Arial, sans-serif;

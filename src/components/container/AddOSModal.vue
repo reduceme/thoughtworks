@@ -42,24 +42,12 @@ export default {
         top: 0
       })
     },
-    handleScroll () {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      this.$store.commit('changeTop', {
-        top: scrollTop
-      })
-    },
     updateAddOSInfo (e) {
       this.$store.commit('updateAddOSInfo', e.target.value)
     },
     ...mapActions([
       'addOS'
     ])
-  },
-  mounted () {
-    // window.addEventListener('scroll', this.handleScroll)
-  },
-  destroyed () {
-    // window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>

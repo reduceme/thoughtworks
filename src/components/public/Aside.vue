@@ -93,16 +93,22 @@ export default {
 
   .aside {
     grid-area: aside;
-    background: #2d4054;
-
     display: grid;
-    grid-template-columns: auto;
+    display: -ms-grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 50% 50%;
-    grid-template-areas: "aside-bar" "aside-history"
+    -ms-grid-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+    grid-template-areas: "aside-bar" "aside-history";
+    background: #2d4054;
   }
 
   .aside-ul {
     grid-area: aside-bar;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
     padding-top: 10px;
 
     .active {
@@ -124,8 +130,11 @@ export default {
       }
       cursor: pointer;
       display: grid;
+      display: -ms-grid;
       grid-template-columns: 33% 67%;
+      -ms-grid-columns: 33% 67%;
       grid-template-rows: 45px;
+      -ms-grid-rows: 45px;
       grid-template-areas: "icon fonts";
 
       list-style: none;
@@ -133,6 +142,8 @@ export default {
 
       span {
         grid-area: icon;
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
         justify-self: end;
         align-self: center;
         font-size: 20px;

@@ -34,8 +34,8 @@ export default {
 <style scoped lang="scss">
   .header {
     grid-area: header;
-    -ms-grid-column: 1; /*确定该元素所在列*/
-    -ms-grid-row: 1;    /*确定该元素所在行*/
+    /*-ms-grid-columns: auto;
+    -ms-grid-rows: 80px;*/
     background: #ffffff;
     display: grid;
     display: -ms-grid;
@@ -56,6 +56,8 @@ export default {
 
     .picture {
       grid-area: picture;
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
       background: url("../../static/ASSETS/logo/logo.svg") no-repeat 50%;
       background-size: 150px;
     }
@@ -65,13 +67,15 @@ export default {
       align-self: center;
 
       display: grid;
+      display: -ms-grid;
+
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
-      grid-template-areas: "nav-img nav-down";
-
-      display: -ms-grid;
       -ms-grid-columns: 1fr 1fr;
       -ms-grid-rows: 1fr;
+      -ms-grid-column: 3;
+      -ms-grid-row: 1;
+      grid-template-areas: "nav-img nav-down";
 
       .nav-img {
         border-radius: 50%;
@@ -79,6 +83,8 @@ export default {
         width: 40px;
         overflow: hidden;
         grid-area: nav-img;
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
         align-self: center;
         justify-self: end;
       }
