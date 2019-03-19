@@ -86,23 +86,39 @@ npm test
 ## 项目存在的问题
 1. 在获取os列表中需要渲染os的图标，自己所想的是
     
+	<img :src="getImg(item.os)"/>
 
-    <img :src="getImg(item.os)"/>
-        
-    getImg (os) {
-      // const imgUrl = '../../static/ASSETS/osIcon/'
-      const imgUrl = './static/osIcon/'
-      return imgUrl + os + '.png'
-    }
+	getImg (os) {
+	  // const imgUrl = '../../static/ASSETS/osIcon/'
+	  const imgUrl = './static/osIcon/'
+	  return imgUrl + os + '.png'
+	}
+
         
 os的名称需要与对应的图标的名称相同，以字符串拼接的方式，获取图片地址，从而达到动态绑定的目的。但是达到的效果为：	![image.png](https://upload-images.jianshu.io/upload_images/155629-34e38bd9487428da.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-暂时不知道是什么原因造成的。在明天到公司之后，自己会第一时间解决这个疑问。
+暂时不知道是什么原因造成的，猜测可能是文件路径的原因造成。
 暂时用
 
-    <img src="../../static/assets/osIcons/windows.png">
+    import windows from '../../static/assets/osIcons/windows.png'	//引入图片
+	import ubuntu from '../../static/assets/osIcons/ubuntu.png'
+	import suse from '../../static/assets/osIcons/suse.png'
+	import debian from '../../static/assets/osIcons/debian.png'
+	import centos from '../../static/assets/osIcons/centos.png'
+
+	data () {
+	    return {
+	      baseImg: {
+	        centos: centos,
+	        debian: debian,
+	        suse: suse,
+	        ubuntu: ubuntu,
+	        windows: windows
+	      }
+	    }
+	  }
+
+	<img :src="baseImg[item.os]">
     
 代替图片以达到如下效果![image.png](https://upload-images.jianshu.io/upload_images/155629-8d4f6a9b0f340ace.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 2. 未使用媒体查询
-3. IE下样式混乱，通过`-ms-`调整之后，未达到想要的效果
-![image.png](https://upload-images.jianshu.io/upload_images/155629-6206cfb47dcb96a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
