@@ -1,7 +1,13 @@
 <template>
   <div>
-    <div class="triangle" v-show="modalShow" :style="{top: top - 35 + 'px', left: left + 32 + 'px'}"></div>
-    <div class="triangle-two" v-show="modalShow" :style="{top: top - 29 + 'px', left: left + 35 + 'px'}"></div>
+    <div class="triangle triangle-first-public" v-show="modalShow && position"
+         :style="{top: top - 35 + 'px', left: left + 32 + 'px'}"></div>
+    <div class="triangle-two triangle-second-public" v-show="modalShow && position"
+         :style="{top: top - 29 + 'px', left: left + 35 + 'px'}"></div>
+    <div class="triangle-down triangle-first-public" v-show="modalShow && !position"
+         :style="{top: top + 171 + 'px', left: left + 32 + 'px'}"></div>
+    <div class="triangle-two-down triangle-second-public" v-show="modalShow && !position"
+         :style="{top: top+ 171 + 'px', left: left + 35 + 'px'}"></div>
     <div class="add-os-modal" v-show="modalShow" :style="{top: top + 'px', left: left + 'px'}">
       <div class="modal-title">
         <div class="modal-title-one">Separate multiple resource name with commas</div>
@@ -31,6 +37,7 @@ export default {
       modalShow: state => state.agents.modalInfo.modalShow,
       top: state => state.agents.modalInfo.top,
       left: state => state.agents.modalInfo.left,
+      position: state => state.agents.modalInfo.position,
       addOSInfo: state => state.agents.addOSInfo
     })
   },
@@ -53,35 +60,37 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .triangle {
-    /*position: fixed;*/
+  .triangle-first-public {
     position: absolute;
-    /*width: 10px;*/
-    /*height: 10px;*/
-    /*background: transparent;*/
     border-width: 18px;
     border-style: solid;
-    border-color: transparent transparent #00b4cf transparent;
     z-index: 1;
-
-    /*top: -11px;
-    left: 50%;
-    margin-left: -11px;
-    border-top-width: 0;
-    !*border-color: transparent transparent #00b4cf transparent;*!
-    border-bottom-color: #00b4cf;
-    border-bottom-color: rgba(0,0,0,.25);*/
   }
-  .triangle-two {
+
+  .triangle-second-public {
     content: '';
-    /*position: fixed;*/
     position: absolute;
     width: 0;
     height: 0;
     border-width: 15px;
     border-style: solid;
-    border-color: transparent transparent #fff transparent;
     z-index: 2;
+  }
+
+  .triangle {
+    border-color: transparent transparent #00b4cf transparent;
+  }
+
+  .triangle-two {
+    border-color: transparent transparent #fff transparent;
+  }
+
+  .triangle-down {
+    border-color: #00b4cf transparent transparent transparent;
+  }
+
+  .triangle-two-down {
+    border-color: #fff transparent transparent transparent;
   }
 
   .add-os-modal {
@@ -90,8 +99,8 @@ export default {
       color: #00B4CF;
       cursor: pointer;
     }
-    box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
-    /*position: fixed;*/
+
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
     position: absolute;
     padding: 0 15px;
     width: 570px;
@@ -147,17 +156,13 @@ export default {
       grid-area: modal-btn;
 
       .modal-btn-one {
-        /*background: #00b4cf;
-        color: #fff;
-        &:hover{
-          background: #01869a;
-        }*/
       }
 
       .modal-btn-two {
         background: #2d4054;
         color: #fff;
-        &:hover{
+
+        &:hover {
           background: #01869a;
         }
       }

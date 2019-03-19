@@ -63,10 +63,21 @@ export default {
     getCoordinate (_this, e) {
       let coordinate = e.currentTarget.getBoundingClientRect()
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+      let scroll = document.body.scrollHeight - scrollTop - coordinate.y - 177
+      if (scroll < 150) {
+        this.$store.commit('isModalShow', {
+          isShow: true,
+          left: coordinate.x,
+          top: coordinate.y + scrollTop - 177 - 80,
+          position: false
+        })
+        return
+      }
       this.$store.commit('isModalShow', {
         isShow: true,
         left: coordinate.x,
-        top: coordinate.y + scrollTop
+        top: coordinate.y + scrollTop,
+        position: true
       })
     },
     getItem (item) {

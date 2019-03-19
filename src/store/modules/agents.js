@@ -15,7 +15,8 @@ const state = {
     modalShow: false,
     left: 0,
     top: 0,
-    tmpTop: 0
+    tmpTop: 0,
+    position: true
   },
   osId: undefined,
   osInfo: {},
@@ -27,6 +28,7 @@ const mutations = {
     state.modalInfo.modalShow = commit.isShow
     state.modalInfo.left = commit.left - 20
     state.modalInfo.top = commit.top + 55
+    state.modalInfo.position = commit.position
     state.modalInfo.tmpTop = commit.top + 55
   },
   changeTop (state, commit) {
