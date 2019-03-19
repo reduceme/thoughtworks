@@ -2,8 +2,7 @@
   <div class="content-list">
     <div class="os-list" v-for="item in osList" :key="item.id">
       <div class="os-icon">
-        <!--<img :src="getImg(item.os)"/>-->
-        <img src="../../static/assets/osIcons/windows.png">
+        <img :src="baseImg[item.os]">
       </div>
       <div class="os-info">
         <div class="os-detail">
@@ -40,21 +39,34 @@
 import { mapState, mapActions } from 'vuex'
 import AddOSModal from './AddOSModal'
 
+import windows from '../../static/assets/osIcons/windows.png'
+import ubuntu from '../../static/assets/osIcons/ubuntu.png'
+import suse from '../../static/assets/osIcons/suse.png'
+import debian from '../../static/assets/osIcons/debian.png'
+import centos from '../../static/assets/osIcons/centos.png'
+
 export default {
   name: 'ContentList',
   components: {AddOSModal},
+  data () {
+    return {
+      baseImg: {
+        centos: centos,
+        debian: debian,
+        suse: suse,
+        ubuntu: ubuntu,
+        windows: windows
+      }
+    }
+  },
   methods: {
-    getImg (os) {
-      // const imgUrl = '../../static/ASSETS/osIcon/'
-      const imgUrl = './static/osIcon/'
-      return imgUrl + os + '.png'
-    },
     getCoordinate (_this, e) {
       let coordinate = e.currentTarget.getBoundingClientRect()
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       this.$store.commit('isModalShow', {
         isShow: true,
         left: coordinate.x,
-        top: coordinate.y
+        top: coordinate.y + scrollTop
       })
     },
     getItem (item) {

@@ -56,27 +56,38 @@ export default {
     ])
   },
   mounted () {
-    window.addEventListener('scroll', this.handleScroll)
+    // window.addEventListener('scroll', this.handleScroll)
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll)
+    // window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
 
 <style scoped lang="scss">
   .triangle {
-    position: fixed;
-    width: 0;
-    height: 0;
+    /*position: fixed;*/
+    position: absolute;
+    /*width: 10px;*/
+    /*height: 10px;*/
+    /*background: transparent;*/
     border-width: 18px;
     border-style: solid;
     border-color: transparent transparent #00b4cf transparent;
     z-index: 1;
+
+    /*top: -11px;
+    left: 50%;
+    margin-left: -11px;
+    border-top-width: 0;
+    !*border-color: transparent transparent #00b4cf transparent;*!
+    border-bottom-color: #00b4cf;
+    border-bottom-color: rgba(0,0,0,.25);*/
   }
   .triangle-two {
     content: '';
-    position: fixed;
+    /*position: fixed;*/
+    position: absolute;
     width: 0;
     height: 0;
     border-width: 15px;
@@ -92,7 +103,8 @@ export default {
       cursor: pointer;
     }
     box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
-    position: fixed;
+    /*position: fixed;*/
+    position: absolute;
     padding: 0 15px;
     width: 570px;
     height: 170px;

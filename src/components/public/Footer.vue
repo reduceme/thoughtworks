@@ -19,6 +19,7 @@ export default {
   border: solid 1px #c1c4c6;
   box-shadow: 0 1px 1px #c1c4c6;
   position: fixed;
+  /*position: absolute;*/
   width: 100%;
   bottom: 0;
   left: 0;

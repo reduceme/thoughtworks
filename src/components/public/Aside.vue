@@ -154,7 +154,7 @@ export default {
     grid-area: aside-history;
     align-self: end;
     text-align: left;
-    padding: 15px;
+    padding: 0 15px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
