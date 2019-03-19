@@ -149,7 +149,6 @@ export default {
       }
     }
   }
-
   .history-ul {
     grid-area: aside-history;
     align-self: end;

@@ -91,8 +91,9 @@ const actions = {
       })
   },
   addOS () {
-    state.osInfo.resources = Array.from(new Set(state.osInfo.resources.concat(state.addOSInfo.split(','))))
-    state.osInfo.resources.splice(state.osInfo.resources.findIndex(item => item === ''), 1)
+    let addOSInfoArr = state.addOSInfo.split(',').filter(item => item !== '')
+    state.osInfo.resources = (Array.from(new Set(state.osInfo.resources.concat(addOSInfoArr))))
+    console.log(state.osInfo.resources)
     axios.put('http://localhost:3001/agents/' + state.osId, state.osInfo)
       .then(function (res) {
         if (res.status === 200) {
